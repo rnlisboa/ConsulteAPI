@@ -5,10 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renan Lisboa | ConsultaAPI</title>
+    <title>Renan Lisboa | ConsulteAPI</title>
     <script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/section.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,9 +25,6 @@
             <ul>
                 <li class="text">
                     <a href="#dolar">Dólar</a>
-                </li>
-                <li class="text">
-                    <a href="#euro">Euro</a>
                 </li>
                 <li class="text">
                     <a href="#clima">Clima</a>
@@ -48,15 +50,67 @@
         </div>
 
 
-        <div id='myDiv'>
-            <!-- Plotly chart will be drawn inside this DIV -->
+        <div id='myDiv'></div>
+
+        <small class="fonte" style="display: none;">Fonte: <a style="color:green;" href="https://www.bcb.gov.br/">Banco
+                Central do Brasil</a></small>
+
+    </section>
+
+    <section id="clima" class="clima">
+        <div class="titulo">
+            Consulte a pervisão do tempo da sua cidade
         </div>
+        <div class="detalhes">
+            <div class="info-clima">
+                <div class="titulo-clima">
+                    <h1>
+                        Informações para a cidade sua cidade
+                    </h1>
+                </div>
+                <div class="cidade-clima">
+                    <div class="info container-data">
+                        <h3 class="data">
+                            Data:
+                        </h3>
+                        <p class="info-data"> 11/12/1998</p>
+                    </div>
 
-        <small>Fonte: <a style="color:green;" href="https://www.bcb.gov.br/">Banco Central do Brasil</a></small>
+                    <div class="info container-higth">
+                        <h3>
+                            Temperatura mais alta
+                        </h3>
+                        <p class="hight-temp">2</p>
+                    </div>
 
+                    <div class="info container-low">
+                        <h3>
+                            Temperatura mais baixa
+                        </h3>
+                        <p class="low-temp">2</p>
+                    </div>
+
+                    <div class="info container-now">
+                        <h3>
+                            Temperatura atual
+                        </h3>
+                        <p class="now-temp">27</p>
+                    </div>
+
+                    <div class="info container-elevation">
+                        <h3>
+                            Elevação
+                        </h3>
+                        <p class="elevation-temp"></p>
+                    </div>
+                </div>
+            </div>
+            <div id='myDivWeather'></div>
+        </div>
     </section>
 
 </body>
 <script src="js/api/api.js"></script>
+<script src="js/api/apiClima.js"></script>
 
 </html>

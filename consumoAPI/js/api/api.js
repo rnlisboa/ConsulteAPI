@@ -1,7 +1,9 @@
 
 let botao = document.querySelector('.button')
 
-botao.addEventListener('click', () => {
+botao.addEventListener('click', () => trataApiDolar())
+
+function trataApiDolar(){
     let ano = document.querySelector('.input-dolar').value
     let url = 'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/'
     url += 'CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?'
@@ -10,8 +12,9 @@ botao.addEventListener('click', () => {
     fetch(url).then(resp => {
         return resp.json()
     })
-        .then(elm => trataApi(elm.value))
+        .then(resposta => trataApi(resposta.value))
         .catch(erro => console.log(erro))
+        .finally(()=>document.querySelector('.fonte').style.display = 'block')
 
 
     function trataApi(elemApi) {
@@ -20,15 +23,26 @@ botao.addEventListener('click', () => {
         for (let i = 1; i <= 12; i++) {
             let parseString = (i).toString()
             let mes = parseString.padStart(2, '0')
+
             const mes_filtrado = elemApi.filter(obj => obj.dataHoraCotacao.slice(5, 7) == mes)
+            
             mes_filtrado.sort(function compara(a, b) {
                 if (a.cotacaoVenda > b.cotacaoVenda) return 1
                 if (a.cotacaoVenda < b.cotacaoVenda) return -1
                 return 0
             })
             meses.push(mes_filtrado)
+            
         }
-        console.log('Ano de referência:', ano.toString())
+        
+        //LÓGICA GRAFICO
+
+        let ultimElm = meses[meses.length - 1]
+        while (ultimElm.length === 0){
+            meses.pop(ultimElm)
+            break
+        }
+        
         var x_lista = []
         var y_lista = []
 
@@ -59,5 +73,4 @@ botao.addEventListener('click', () => {
         Plotly.newPlot('myDiv', data, layout);
 
     }
-})
-
+}

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Shalimar&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,34 +8,37 @@
     text-decoration: none;
 }
 
-:root{
-    --font-primary:'Roboto', sans-serif;
+:root {
+    --font-primary: 'Roboto', sans-serif;
 }
 
-.section-dolar  {
+.section-dolar {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: var(--font-primary);
+    height: 80vh;
+    margin-bottom: 4rem;
 }
 
-.section-dolar .header-dolar h3{
+.section-dolar .header-dolar h3 {
     color: green;
     font-size: 1.5rem;
-    
+
     margin-bottom: 1rem;
 }
 
-.section-dolar .header-dolar{
+.section-dolar .header-dolar {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1rem;
 }
 
-.section-dolar .header-dolar .pesquisa-dolar input{
-    width:20rem;
+.section-dolar .header-dolar .pesquisa-dolar input {
+    width: 20rem;
     height: 2rem;
     background-color: #4f4f4f33;
     border: none;
@@ -43,11 +46,11 @@
     padding: 1rem;
 }
 
-.section-dolar .header-dolar .pesquisa-dolar input:focus{
+.section-dolar .header-dolar .pesquisa-dolar input:focus {
     border: none;
 }
 
-.section-dolar .header-dolar .pesquisa-dolar button{
+.section-dolar .header-dolar .pesquisa-dolar button {
     height: 2rem;
     width: 6rem;
     border-radius: .2rem;
@@ -57,6 +60,50 @@
     cursor: pointer;
 }
 
-.section-dolar .header-dolar .pesquisa-dolar button:active{
+.section-dolar .header-dolar .pesquisa-dolar button:active {
     background-color: rgb(0, 94, 0);
+}
+
+
+
+.clima {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: var(--font-primary);
+}
+@media (max-width: 700px)
+{
+    .detalhes{
+        flex-direction: column;
+    }
+}
+
+.titulo{
+    font-size: 2rem;
+    color: blue;
+}
+
+.detalhes{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+
+.info-clima{
+    width: 30rem;
+    height: 100%;
+}
+
+.titulo-clima{
+    margin-bottom: 2rem;
+}
+
+
+
+.info{
+    margin-bottom: 1rem;
 }
